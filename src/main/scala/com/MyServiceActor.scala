@@ -13,7 +13,7 @@ class MyServiceActor
 
   val brokerManager: ActorRef = actorRefFactory.actorOf(ConnectionActor.props(factory), "broker")
 
-  Range(1, 5).map(id => new Consumer(s"CONSUMER-$id", brokerManager, consumerConf))
+  Range(1, consumers).map(id => new Consumer(s"CONSUMER-$id", brokerManager, consumerConf))
 
   def receive = runRoute(rootRoute)
 

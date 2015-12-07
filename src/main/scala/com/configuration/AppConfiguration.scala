@@ -29,6 +29,8 @@ trait AppConfiguration {
     exclusive =  conf.getBoolean("broker.queue.exclusive"),
     autoDelete = conf.getBoolean("broker.queue.autoDelete"))
 
+  val consumers = conf.getInt("broker.consumers")
+
 }
 
 object AppConfiguration extends AppConfiguration
